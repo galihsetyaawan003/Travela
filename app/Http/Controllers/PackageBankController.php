@@ -47,7 +47,7 @@ class PackageBankController extends Controller
             $newBank = PackageBank::create($validated);
 
         });
-        return redirect()->route('admin.banks.index');   
+        return redirect()->route('admin.package_banks.index');   
     }
 
     /**
@@ -69,7 +69,7 @@ class PackageBankController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PackageBank $packageBank)
+    public function update(UpdatePackageBankRequest $request, PackageBank $packageBank)
     {
         DB::transaction(function() use ($request, $packageBank){
           
@@ -84,7 +84,7 @@ class PackageBankController extends Controller
             $packageBank->update($validated);
 
         });
-        return redirect()->route('admin.banks.index');   
+        return redirect()->route('admin.package_banks.index');   
     }
 
     /**
@@ -96,6 +96,6 @@ class PackageBankController extends Controller
             $packageBank->delete();
         });
 
-        return redirect()->route('admin.banks.index');
+        return redirect()->route('admin.package_banks.index');
     }
 }
