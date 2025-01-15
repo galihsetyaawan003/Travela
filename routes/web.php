@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //mengatur routing pada chekout_page (frontend)
-    Route::middleware('can:chekout_package')->group(function (){
+    Route::middleware('can:checkout package')->group(function (){
         Route::get('/book/{packageTour:slug}', [FrontController::class, 'book'])
             ->name('front.book');
         
